@@ -15,6 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::group(['middleware' => 'auth'], function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    // USERS ==================================================
+    Route::resource('user', 'UserController')->names([
+        'index'     =>  'user.index',
+        'create'    =>  'user.create',
+        'store'     =>  'user.store',
+        'show'      =>  'user.show',
+        'edit'      =>  'user.edit',
+        'update'    =>  'user.update',
+        'destroy'   =>  'user.destroy',
+    ]);
+    // END USERS ==============================================
+
+});
+
+
+Auth::routes();

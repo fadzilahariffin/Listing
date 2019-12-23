@@ -49,6 +49,14 @@
                                 </li>
                             @endif
                         @else
+                            @if (auth()->user()->type == 'a')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Users</a>
+                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Listing</a>
+                            </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -73,8 +81,24 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        @include('includes.messages')
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+
+    <script>
+		window.setTimeout(function() {
+		    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+		        $(this).remove(); 
+		    });
+		}, 4000);
+	</script>
+    @stack('scripts')
 </body>
 </html>
