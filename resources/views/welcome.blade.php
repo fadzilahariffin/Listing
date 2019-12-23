@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Listing
+                    Welcome to Listing System
                 </div>
             </div>
         </div>
