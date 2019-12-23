@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('user.update',$user) }}" method="POST">
+<form action="{{ route('listing.update',$listing) }}" method="POST">
     @csrf
     @method('PATCH')
     <div class="card">
@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h4 class="card-title mb-0">
-                        Users
+                        Create New List
                     </h4>
                 </div>
                 <!--col-->
@@ -19,48 +19,48 @@
             {{--Form --}}
 
             <div class="form-row">
-                <div class="form-group col-md-12 {{ $errors->has('name') ? 'has-error' : ''}} mt-5">
-                    <label for="name">Name <span style="color: red;">*</span></label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter Name"
-                        value="{{ old('name',$user->name) }}">
-                    {!! $errors->first('name', '<p class="help-block" style="color:red;">:message</p>') !!}
+                <div class="form-group col-md-12 {{ $errors->has('list_name') ? 'has-error' : ''}} mt-5">
+                    <label for="list_name">List Name <span style="color: red;">*</span></label>
+                    <input type="text" name="list_name" class="form-control" placeholder="Enter List Name"
+                        value="{{ old('list_name',$listing->list_name) }}">
+                    {!! $errors->first('list_name', '<p class="help-block" style="color:red;">:message</p>') !!}
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-12 {{ $errors->has('email') ? 'has-error' : ''}}">
-                    <label for="section_title">Email <span style="color: red;">*</span></label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter Email"
-                        value="{{ old('email',$user->email) }}">
-                    {!! $errors->first('email', '<p class="help-block" style="color:red;">:message</p>') !!}
+                <div class="form-group col-md-12 {{ $errors->has('address') ? 'has-error' : ''}}">
+                    <label for="address">Address <span style="color: red;">*</span></label>
+                    <textarea class="form-control" name="address" placeholder="Enter Address">{{old('address',$listing->address)}}</textarea>
+                    {!! $errors->first('address', '<p class="help-block" style="color:red;">:message</p>') !!}
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-3 {{ $errors->has('type') ? 'has-error' : ''}} ">
-                    <label for="type">Type <span style="color: red;">*</span></label>
-                    <select name="type" class="form-control">
-                        <option value=null selected disabled>- Please Select -</option>
-                        <option value="u" @if (old('type',$user->type)=='u' ) selected @endif>User</option>
-                        <option value="a" @if (old('type',$user->type)=='a' ) selected @endif>Admin</option>
-                    </select>
-                    {!! $errors->first('type', '<p class="help-block" style="color:red;">:message</p>') !!}
+                <div class="form-group col-md-6 {{ $errors->has('latitude') ? 'has-error' : ''}} ">
+                    <label for="latitude">Latitude <span style="color: red;">*</span></label>
+                    <input type="text" name="latitude" class="form-control" placeholder="Enter Latitude"
+                        value="{{ old('latitude',$listing->latitude) }}">
+                    {!! $errors->first('latitude', '<p class="help-block" style="color:red;">:message</p>') !!}
+                </div>
+                <div class="form-group col-md-6 {{ $errors->has('longitude') ? 'has-error' : ''}} ">
+                    <label for="longitude">Longitude <span style="color: red;">*</span></label>
+                    <input type="text" name="longitude" class="form-control" placeholder="Enter Latitude"
+                        value="{{ old('longitude',$listing->longitude) }}">
+                    {!! $errors->first('longitude', '<p class="help-block" style="color:red;">:message</p>') !!}
                 </div>
             </div>
-
-
 
         </div>
         <div class="card-footer">
             <div class="row">
                 <div class="col">
-                    <a href="{{ route('user.index') }}" class="btn btn-danger ">Cancel</a>
+                    <a href="{{ route('listing.index') }}" class="btn btn-danger ">Cancel</a>
                 </div>
                 <!--col-->
 
                 <div class="col text-right">
 
-                    <input type="submit" class="btn btn-primary " value="Update">
+                    <input type="submit" class="btn btn-primary " value="Submit">
                 </div>
                 <!--col-->
             </div>

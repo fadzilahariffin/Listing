@@ -18,7 +18,6 @@ class ListingController extends Controller
     }
 
     public function store(Request $request){
-        // dd($request->all());
         $this->validate($request,[
             'list_name'         => 'required',
             'address'           => 'required',
@@ -42,14 +41,17 @@ class ListingController extends Controller
 
     public function update(Request $request,Listing $listing){
         $this->validate($request,[
-            'name'              => 'required',
-            'email'             => 'required|unique:users,email,'.$listing->id,
-            'type'              => 'required',
+            'list_name'         => 'required',
+            'address'           => 'required',
+            'latitude'          => 'required|numeric',
+            'longitude'         => 'required|numeric',
         ]);
         $listing->update([
-            'name'              => $request->name,
-            'email'             => $request->email,
-            'type'              => $request->type,
+            'list_name'           => $request->list_name,
+            'address'             => $request->address,
+            'latitude'            => $request->latitude,
+            'longitude'           => $request->longitude,
+            'submitter_id'        => auth()->user()->id  // also update the submitter 
         ]);
 
         return redirect('listing')->with('flash_success','Data '.$listing->list_name.' Successfully Updated!');
