@@ -31,6 +31,18 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
     // END USERS ==============================================
 
+    // USERS ==================================================
+    Route::resource('listing', 'ListingController')->names([
+        'index'     =>  'listing.index',
+        'create'    =>  'listing.create',
+        'store'     =>  'listing.store',
+        'show'      =>  'listing.show',
+        'edit'      =>  'listing.edit',
+        'update'    =>  'listing.update',
+        'destroy'   =>  'listing.destroy',
+    ]);
+    // END USERS ==============================================
+
 });
 
 

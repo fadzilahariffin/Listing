@@ -75,7 +75,7 @@
 
                 <div class="col text-right">
 
-                    <input type="submit" class="btn btn-success " value="Next">
+                    <input type="submit" class="btn btn-primary " value="Submit">
                 </div>
                 <!--col-->
             </div>

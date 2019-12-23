@@ -15,7 +15,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Listing</h5>
-                    <a href="#" class="btn btn-primary">View</a>
+                    <a href="{{route('listing.index')}}" class="btn btn-primary">View</a>
                 </div>
             </div>
         </div>

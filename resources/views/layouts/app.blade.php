@@ -51,10 +51,10 @@
                         @else
                             @if (auth()->user()->type == 'a')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Users</a>
+                                    <a class="nav-link" href="{{route('user.index')}}">Users</a>
                                 </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Listing</a>
+                                <a class="nav-link" href="{{route('listing.index')}}">Listing</a>
                             </li>
                             @endif
                             <li class="nav-item dropdown">
