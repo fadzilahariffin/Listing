@@ -3,30 +3,38 @@
     <div class="card">
         <div class="card-body">
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">Name</label>
+                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">List Name</label>
                 <div class="col-sm-10">
-                    <p style="font-size:20px;">{{$user->name}}</p>
+                    <p style="font-size:20px;">{{$listing->list_name}}</p>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">Email</label>
+                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">Address</label>
                 <div class="col-sm-10">
-                    <p style="font-size:20px;">{{$user->email}}</p>
+                    <p style="font-size:20px;">{{$listing->address}}</p>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">Type</label>
+                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">Latitude</label>
                 <div class="col-sm-10">
-                    @if ($user->a == 'a')
-                        <p style="font-size:20px;">Admin</p>
-                    @else
-                        <p style="font-size:20px;">User</p>
-                    @endif
+                    <p style="font-size:20px;">{{$listing->latitude}}</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">Longitude</label>
+                <div class="col-sm-10">
+                    <p style="font-size:20px;">{{$listing->longitude}}</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2" style="font-size:20px;">Submitter</label>
+                <div class="col-sm-10">
+                    <p style="font-size:20px;">{{$listing->submitter->name}}</p>
                 </div>
             </div>
         </div>
         <div class="card-footer">
-            <a href="{{route('user.index')}}" class="btn btn-sm btn-danger">Back</a>
+            <a href="{{route('listing.index')}}" class="btn btn-sm btn-danger">Back</a>
         </div>
     </div>
 @endsection
