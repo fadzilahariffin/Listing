@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
         'edit'      =>  'user.edit',
         'update'    =>  'user.update',
         'destroy'   =>  'user.destroy',
-    ]);
+    ])->middleware('usertype');
     // END USERS ==============================================
 
     // USERS ==================================================
@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
         'edit'      =>  'listing.edit',
         'update'    =>  'listing.update',
         'destroy'   =>  'listing.destroy',
-    ]);
+    ])->middleware('usertype');
     // END USERS ==============================================
 
 });
