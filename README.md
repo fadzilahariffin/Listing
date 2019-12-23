@@ -6,7 +6,7 @@ Listing System with api
 
 ## Installation
 
-- clone the project with git clone 
+- clone the project with ```git clone https://github.com/fadzilahariffin/Listing.git``` 
 - create .env file
 - create DB scheme and setup DB in .env file
 - generate application key by ```php artisan key:generate```
