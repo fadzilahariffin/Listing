@@ -15,6 +15,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::group(['middleware' => 'auth'], function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    // USERS ==================================================
+    Route::resource('user', 'UserController')->names([
+        'index'     =>  'user.index',
+        'create'    =>  'user.create',
+        'store'     =>  'user.store',
+        'show'      =>  'user.show',
+        'edit'      =>  'user.edit',
+        'update'    =>  'user.update',
+        'destroy'   =>  'user.destroy',
+    ])->middleware('usertype');
+    // END USERS ==============================================
+
+    // USERS ==================================================
+    Route::resource('listing', 'ListingController')->names([
+        'index'     =>  'listing.index',
+        'create'    =>  'listing.create',
+        'store'     =>  'listing.store',
+        'show'      =>  'listing.show',
+        'edit'      =>  'listing.edit',
+        'update'    =>  'listing.update',
+        'destroy'   =>  'listing.destroy',
+    ])->middleware('usertype');
+    // END USERS ==============================================
+
+});
+
+
+Auth::routes();
