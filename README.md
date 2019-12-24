@@ -14,7 +14,7 @@ Listing System with api
 - migrate and seed new DB with ```php artisan migrate:fresh --seed```
 - install passport to use api with ```php artisan passport:install```
 
-1. account
+1. available seed account
 - Email : admin@admin.com
 - Password: password
 
