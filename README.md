@@ -13,3 +13,13 @@ Listing System with api
 - ```composer update```
 - migrate and seed new DB with ```php artisan migrate:fresh --seed```
 - install passport to use api with ```php artisan passport:install```
+
+1. account
+- Email : admin@admin.com
+- Password: password
+
+- Email: user1@user.com
+- Password: password
+
+- Email: user2@user.com
+- Password: password
